@@ -1,0 +1,10 @@
+# Secrets: never commit these
+.env
+
+# Local database file (we'll generate it from a script instead)
+*.db
+
+# Python clutter
+__pycache__/
+venv/
+.venv/
