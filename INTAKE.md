@@ -33,7 +33,7 @@ The app touches only the order number, the make and model and vin of the vehicle
 
 \## Later, if time allows
 
-Sorting and filtering by days open, or reason for order delay.
+Sorting and filtering by days open, or reason for order delay. The user's main issue is seeing stale orders, but in a real version of an app like this editing would be something that would be nice to add if the owner requested it.
 
 
 
