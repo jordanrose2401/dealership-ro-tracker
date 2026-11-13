@@ -5,3 +5,5 @@ Accidently created a nested dealership-ro-tracker folder when attempting to clon
 Checked with git status and git log to make sure that only an empty shell was being deleted when I deleted the dealership project in my OneDrive Documents folder.
 Learned about git pull, and how to tell where I am in my drive architecture when using the terminal.
 
+Created INTAKE.md. Updated twice based on critique from Claude.
+
