@@ -7,3 +7,6 @@ Learned about git pull, and how to tell where I am in my drive architecture when
 
 Created INTAKE.md. Updated twice based on critique from Claude.
 
+Created DATA\_DESIGN.md which lead to updating INTAKE.md to better reflect current design ideology.
+Updated DATA\_DESIGN.md to better reflect what information will be stored, calculated, and displayed to Mr. Smith. Also updated INTAKE.md to reflect these changes.
+
