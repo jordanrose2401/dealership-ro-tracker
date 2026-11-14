@@ -33,7 +33,7 @@ The app touches only the order number, the make and model and vin of the vehicle
 
 \## Later, if time allows
 
-If there is time we will include a login for Mr. Smith. By default orders will be sorted by days open, if time allows more sorting and filtering options may be added. The user's main issue is seeing stale orders, but in a real version of an app like this editing would be something that would be nice to add if the owner requested it.
+If there is time we will include a login for Mr. Smith, this is fine for this prototype with invented data, but a real app with real sensitive data would need at least a rudimentary login system before it went public. By default orders will be sorted by days open, if time allows more sorting and filtering options may be added. The user's main issue is seeing stale orders, but in a real version of an app like this editing would be something that would be nice to add if the owner requested it.
 
 
 
