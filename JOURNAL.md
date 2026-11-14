@@ -9,4 +9,5 @@ Created INTAKE.md. Updated twice based on critique from Claude.
 
 Created DATA\_DESIGN.md which lead to updating INTAKE.md to better reflect current design ideology.
 Updated DATA\_DESIGN.md to better reflect what information will be stored, calculated, and displayed to Mr. Smith. Also updated INTAKE.md to reflect these changes.
+Updated python to 3.15.2 for use on this project. Went with default options in the installer except I chose to add python to PATH. Created a virtual python environment so that nothing else would be interfered with on my machine. Checked that python was up to date and my virtual environment was working in my project terminal.
 
