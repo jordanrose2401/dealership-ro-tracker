@@ -1,0 +1,90 @@
+\### Context
+
+
+
+First, read INTAKE.md and DATA\_DESIGN.md for context.
+
+&#x20;
+
+\### Goal
+
+
+
+The goal is to create a loader script (named load\_orders.py, stored in scripts\\, with run command "python scripts\\load\_orders.py\\good\_orders.csv" OR "python scripts\\load\_orders.py\\bad\_orders.csv)", state clearly if the file path does not exit) that takes a CSV path as an argument and outputs a database.
+
+Print a summary that includes: rows loaded, rows rejected, reason for rejection, and identify them by row number.
+
+
+
+\### Files
+
+
+
+CSV path arguments (good\_orders.csv and bad\_orders.csv) will be taken from data\\ at the root of this project.  
+Output will be stored in data/orders.db which this loader will create, or if it's already been created overwrite, with paths relative to the script.
+
+
+
+\### Rules
+
+
+
+Use only the python standard library (sqlite3, csv, argparse, datetime, pathlib).  
+Summary should not print full VINs.
+
+If a loaded file has rejected rows, only reject the non-valid rows and load the valid rows.  
+Check that the full VIN is valid, then store only the last 4 characters.  
+For rows with duplicate order numbers, accept the first and reject all subsequent.  
+
+Only a row that passes every other check counts as the first occurrence.
+Dates should be stored as ISO text.
+
+The CSV must have the six expected headers (order\_no, date\_opened, date\_completed, make\_model, vin, reason) or the whole file is rejected with a clear message.
+
+Rules for a valid row:
+\* order\_no is a whole number from 10000 to 99999.  
+\* date\_opened is required and a real ISO date (YYYY-MM-DD). Cannot be in the future.  
+\* date\_completed is blank or a real ISO date that isn't before date\_opened and also isn't in the future. Read today's date from the system clock when the loader runs.  
+\* reason is one of four exact strings (Parts, Customer Approval, Technician, Warranty) defined once in the script.  
+\* Open orders must have a reason, and completed orders must have a truly blank reason in the CSV and a SQL NULL in the database.  
+\* make\_model is not blank.  
+\* vin is 17 characters, all uppercase letters and digits, no I, O, or Q.  
+Every run should delete and recreate the table. But, if the file doesn't exist or the headers are wrong, exit with a clear message without changing the existing database. 
+Insert using ? placeholders. Never build SQL by joining strings.
+
+Before writing any files, tell me your plan: the database table design, how each rule is checked, and a table showing which bad row triggers which rejection message. Wait for my approval.
+
+As part of the plan, propose a table where the database itself enforces what it can: required columns, a unique order\_no, and a reason that must come from the list.  
+Use short functions and plain-English comments so I can easily undertstand what's going on.  
+Create a short outline of how the script is organized once it's done.  
+When finished, list every file modified or created.
+
+
+
+\### Test Cases
+
+
+
+Encompassed by good\_orders.csv and bad\_orders.csv
+
+
+
+\### Do Not
+
+
+
+Do not run the loader or any other script.
+
+Create only scripts/load\_orders.py; orders.db appears when I run it.
+
+Do not create or edit any other files including data\_gen.py and .gitignore.  
+Do not create a webpage, implement Flask, a login, or packages, and do not run git commands.
+
+
+
+\### Done When
+
+
+
+The loader is done when it loads all 12 rows from good\_orders.csv and rejects the 5 invalid rows from bad\_orders.csv and accepts the 1 valid order (the first of the two duplicates), and running the loader twice on the good file leaves exactly 12 rows.
+
