@@ -20,7 +20,12 @@ Merged the feature branch to the main after confirming that the script worked as
 Created a prompt for the loader, and went through several revisions per Claude recommendations.  
 Ran loader prompt and modified the plan slightly before running and creating the loader script.
 
-Decided that the CSVs would store the full VINs but the loader would only load in the last 4 characters, but only after checking that the VIN was valid first. This addresses a security concern, if the database the information is stored in is ever breached, it never held the full VINs to begin with.  
+Decided that the CSVs would store the full VINs but the loader would only load in the last 4 characters, but only after checking that the VIN was valid first. This addresses a security concern, if the database the information is stored in is ever breached, it never held the full VINs to begin with.
 
 Merged feature branch with main and deleted feature branch.
+
+Created a prompt draft for the Flask board, then revised prompt.
+Ran prompt, made slight revisions to plan before approving for Claude Code to build.
+Tested board for expected behavior, 6 passed tests and "4 of 9 open orders are stale." Changed database name to test if the correct error would be displayed, which it was. Also tested that errors testing the staleness condition would trigger if I modified STALE\_AFTER\_DAYS variable from 7 to 6. Correct tests failed under these condition.
+Finally merged board branch with main branch on GitHub, and deleted board branch locally.
 
