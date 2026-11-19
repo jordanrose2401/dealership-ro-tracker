@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repair Order Board</title>
+  <style>
+    body    { font-family: sans-serif; margin: 2rem; color: #222; background: #fff; }
+    h1      { margin-bottom: 0.25rem; }
+    .as-of  { color: #555; margin-top: 0; }
+    .summary, .message { font-size: 1.1rem; font-weight: bold; }
+    table   { border-collapse: collapse; }
+    th, td  { border: 1px solid #ccc; padding: 0.4rem 0.8rem; text-align: left; }
+    th      { background: #f0f0f0; }
+    .number { text-align: right; }
+    .stale  { color: #c00; font-weight: bold; }
+    .ok     { color: #080; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Repair Order Board</h1>
+  <p class="as-of">As of {{ as_of }}</p>
+
+  {# If there's a message (no data, no open orders, or an error), show only that. #}
+  {% if message %}
+    <p class="message">{{ message }}</p>
+  {% else %}
+    <p class="summary">{{ stale_count }} of {{ orders|length }} open orders are stale</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Days Open</th>
+          <th>Make &amp; Model</th>
+          <th>VIN</th>
+          <th>Reason</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+          <tr>
+            <td>{{ order.order_no }}</td>
+            <td class="number">{{ order.days_open }}</td>
+            <td>{{ order.make_model }}</td>
+            <td>{{ order.vin_last4 }}</td>
+            <td>{{ order.reason }}</td>
+            {% if order.is_stale %}
+              <td class="stale">STALE</td>
+            {% else %}
+              <td class="ok">OK</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</body>
+</html>
