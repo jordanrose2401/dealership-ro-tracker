@@ -1,12 +1,12 @@
-\### Screenshot of the app in action
+### Screenshot of the app in action
 
 
 
-!\[Open repair order board](docs/screenshot.png)
+![Open repair order board](docs/screenshot.png)
 
 
 
-\### About the app
+### About the app
 
 
 
@@ -14,7 +14,7 @@ This app is a portfolio project that was created using synthetic data. It exists
 
 
 
-\### Link
+### Link
 
 
 
@@ -23,7 +23,7 @@ Note: I am using a free hosting option; the webpage takes about 50 seconds to lo
 
 
 
-\### How it works
+### How it works
 
 
 
@@ -35,7 +35,7 @@ This app works by first loading a data generation script, which creates syntheti
 
 
 
-\### Run it
+### Run it
 
 
 
@@ -69,7 +69,7 @@ cd dealership-ro-tracker).
 
 
 
-\### Security Decisions
+### Security Decisions
 
 
 
@@ -77,7 +77,7 @@ Read SECURITY\_REVIEW.md to see my review of the app's security. Some important 
 
 
 
-\### Real version
+### Real version
 
 
 
@@ -85,7 +85,7 @@ A real version of this app would need a company sign-in, an actual data feed tha
 
 
 
-\### How I built it
+### How I built it
 
 
 
@@ -93,7 +93,7 @@ Claude wrote all code from prompts which I revised with input from Claude chat. 
 
 
 
-\### Known limitations
+### Known limitations
 
 
 
