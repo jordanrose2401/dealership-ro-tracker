@@ -1,4 +1,4 @@
-\### What data does the app hold, and what would happen if all of it leaked?
+### What data does the app hold, and what would happen if all of it leaked?
 
 My repair order tracker app only holds synthetic data of customer repair orders. This includes the order number, the number of days the order has been open, the make and model of the customer's vehicle, the last 4 characters of the vehicle's VIN, and the status of either "STALE" or "OK" depending on whether or not the number of days the order has been opened is greater than 7. The order number is the key to the customer's records in the dealership's other system, this order number is therefore harmless because the link to the actual customer information is out of reach.
 
@@ -6,7 +6,7 @@ None of this data is sensitive for the customer, the only part would be the VIN,
 
 
 
-\### Who can reach it, and what can they do?
+### Who can reach it, and what can they do?
 
 
 
@@ -14,7 +14,7 @@ Anyone with a link can reach this app, but as there is no user input allowed the
 
 
 
-\### Where does the app take in data from outside that it has to trust?
+### Where does the app take in data from outside that it has to trust?
 
 
 
@@ -22,7 +22,7 @@ This app takes no user input so the only outside data is from the imported synth
 
 
 
-\### What does the app tell people when it fails?
+### What does the app tell people when it fails?
 
 
 
@@ -30,13 +30,13 @@ It depends on the failure, but in general it displays a plain-English error mess
 
 
 
-\### What outside code does it depend on?
+### What outside code does it depend on?
 
 It depends on outside code from Flask, Jinja2, Werkzeug, and Gunicorn. As well as GitHub and Render as it uses those services.
 
 
 
-\### What would have to change before real data went in?
+### What would have to change before real data went in?
 
 
 
