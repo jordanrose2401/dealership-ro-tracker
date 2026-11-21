@@ -1,10 +1,10 @@
-\### Context
+### Context
 
 Read INTAKE.md and DATA\_DESIGN.md and scripts/load\_orders.py for context.
 
 
 
-\### Goal
+### Goal
 
 The goal is to create a Flask Board that displays the Repair Orders that are incomplete on a webpage. The database has completed orders in it, but this webpage should not display them to the user. Each row should show the order number ("Order Number" on the page, it's stored in the db as order\_no), days the order has been opened ("Days Open" on the page, calculated as today's date, read from the system clock, minus the date opened which is stored as date\_opened in the db), the make and model of the car ("Make \& Model" on the page, stored as make\_model in the db, in one column), the last 4 characters of the VIN ("VIN" on the page, stored as vin\_last4 in the db which only stores the last 4 characters of the VIN), the reason the order is open ("Reason" on the page, stored as reason in the db), and a flag with the word "STALE" (in red text) if the order is stale and "OK" (in green text) if the order is not stale. The staleness check is a small function that takes two dates (the opened date and today, check today's date with a simple get\_today() function that is the only place in the code where the clock is checked) and returns the days open (days\_open = today minus date\_opened, in caledary days) and whether it’s stale. Define STALE\_AFTER\_DAYS = 7, and an order is defined to be stale if days\_open > STALE\_AFTER\_DAYS. A summary line should be generated and put at the top of the table with the number of open orders that are stale out of the total number of open orders (ex: "2 of 9 open orders are stale").
 
@@ -14,7 +14,7 @@ The goal is to create a Flask Board that displays the Repair Orders that are inc
 
 
 
-\### Files
+### Files
 
 app.py at the project's root.
 
@@ -26,7 +26,7 @@ test/\_\_init\_\_.py
 
 
 
-\### Rules
+### Rules
 
 Only use the standard python library and the Flask package.
 
@@ -66,13 +66,13 @@ Report any disagreement between the docs and the prompt, use short functions wit
 
 
 
-\### Test Cases
+### Test Cases
 
 The staleness check is a small function that takes two dates (the opened date and today) and returns the days open and whether it’s stale. It must not read the clock itself. Test it with fixed dates for the 0, 6, 7, and 8-day cases.
 
 
 
-\### Do Not
+### Do Not
 
 No login.
 
@@ -90,7 +90,7 @@ Do not run the tests.
 
 
 
-\### Done When
+### Done When
 
 Load good\_orders.csv first. This is done when all the rows are displayed as laid out above, with a message about what proportion of orders are stale, also as laid out above. In the case of running good\_orders.csv the expected output is 9 open orders at 0, 1, 2, 6, 7, 8, 12, 15, and 21 days, and three completed orders which stay hidden. Orders with 0, 1, 2, 6, and 7 days open should be marked as "OK" (with green text), and orders with 8, 12, 15, and 21 days open should be marked as "STALE" (with red text). 4 of 9 open orders are stale is expected, and the table should be ordered by days open 21. 15. 12. 8. 7. 6. 2. 1. 0.
 
@@ -98,7 +98,7 @@ The unit tests must pass with python -m unittest.
 
 
 
-\### Plan First
+### Plan First
 
 Create a plan first. Cover the route, the database query, how read-only works, the empty and error states, and a table with test cases and expected results. Confirm that a missing database file is not created as an empty one.  
 Before writing any files, give me the plan and wait for my approval.  
