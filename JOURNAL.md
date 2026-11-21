@@ -30,5 +30,19 @@ Tested board for expected behavior, 6 passed tests and "4 of 9 open orders are s
 Finally merged board branch with main branch on GitHub, and deleted board branch locally.  
 Setup hosting through Render and deployed v1 of the app. Set the time zone to Utah time in the settings on Render to agree with the idea that the app would be used by a user in Utah. Also did a test after 5 PM Utah time to make sure it still showed the correct date (November 19) which confirmed that it was using Utah time and not UTC. Also of note I'm use the free hosting option, so if the webpage is not in use for more than 15 minutes it needs around 50 seconds for the server to wake up when going back to the page. In this app the data\_gen.py script running first as part of the start command is simulating receiving a fresh feed of data from some dealership database every time the webpage is reloaded. If this were only run as part of the build command the "Days Open" would continually add a day for every day since the build was completed, this is the fix to simulate a real data feed. The database is similarly generated every time as part of the start command, but only if the data generation runs successfully. One limitation of this is that the webpage only updates on reload, so if it were kept open over a midnight threshold the page wouldn't be accurate until it was reloaded.
 
-Also pinned gunicorn to an exact version in requirements.txt because it was the only package in requirements.txt that was not pinned to a specific version.
+Also pinned gunicorn to an exact version in requirements.txt because it was the only package in requirements.txt that was not pinned to a specific version.  
+
+Created the feature/security-review-and-readme branch. Answered six security questions and revised answers based on Claude feedback.  
+
+Received note on compliance and tools like Snyk, so decided to run pip-audit to check for vulnerabilities (none found) and turned on 2FA on GitHub.  
+
+Confirmed Render's auto-deploy was set to "On-Commit" which means merging to main publishes the site.  
+
+Built the security findings table and learned to name specific bad scenarios, and what stops each.  
+
+Found my real email on GitHub was attached to branch merger commits, so changed the setting on GitHub. Chose to accept the risk of having my email visible on those commits.  
+
+Modified plan based on new information about time schedule, therefore cut login and documented it as a deliberate decision.  
+
+Drafted README and revised with input from Claude chat.  
 
